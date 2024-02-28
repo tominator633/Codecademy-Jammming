@@ -1,0 +1,11 @@
+#resultsPlaylistCON {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-top: 40px;
+}
+
+
+

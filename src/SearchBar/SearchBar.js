@@ -1,4 +1,4 @@
-import React, { useSyncExternalStore } from "react";
+import React from "react";
 import styles from "./SearchBar.module.css"
 
 function SearchBar () {
@@ -13,7 +13,7 @@ function SearchBar () {
             id={styles.songSearchField}
             placeholder="enter a song title"
             name="song"
-            value="" />
+             />
 
         <button 
             id={styles.songSearchSubmit}

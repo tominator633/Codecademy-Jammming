@@ -1,0 +1,19 @@
+#resultsCON {
+    width: 500px;
+  }
+  
+  #resultsCON h2 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: #134B1D;
+  }
+
+
+  
+  
+  

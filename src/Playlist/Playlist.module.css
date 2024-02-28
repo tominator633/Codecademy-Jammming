@@ -1,0 +1,40 @@
+#playlistCON {
+    width: 500px;
+    text-align: center;
+  }
+  
+  #playlistName {
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    border: none;
+    border-radius: 40px;
+    cursor: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: transparent;
+    outline: none;
+    font-family: "Anta", sans-serif;
+    color: #134B1D;
+    text-align: center;
+  }
+  
+  #playlistName::placeholder {
+    text-align: center;
+    color: #134B1D;
+    opacity: 0.6;
+  }
+
+  #savePlaylist {
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    background-color:#000;
+    border: none;
+    font-family: "Anta", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    color: #2aab41;
+  
+  }
