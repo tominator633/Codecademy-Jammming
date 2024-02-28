@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  .getBor {
+    border: 2px solid orange;
+}   */
+
+body {
+    height: 100svh;
+    background: linear-gradient(to bottom, #2aab41, #69ba5a, #94c975, #b9d795, #d8e7b7);
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-family: "Anta", sans-serif;
+    font-size: 50px;
+    color: #D8E7B7;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+
