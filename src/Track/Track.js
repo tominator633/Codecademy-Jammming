@@ -3,6 +3,11 @@ import styles from "./Track.module.css";
 
 function Track (props) {
 
+const handleClick = (event) => {
+  props.addTrack(event.target);
+}
+
+
 return (
       <div id={styles.track}>
         <figure id={styles.cover}></figure>
@@ -10,7 +15,8 @@ return (
           <h3 id={styles.trackName}>{props.name}</h3>
           <h4 id={styles.artistAlbum}>{props.artist} | {props.album}</h4>
         </div>
-        <button id={styles.plusBtn}>+</button>
+        <button id={styles.plusBtn}
+                onClick={handleClick}>+</button>
       </div>
     )
 }
