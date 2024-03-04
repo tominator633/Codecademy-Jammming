@@ -7,6 +7,12 @@ function Playlist (props) {
   const handleChange = (event) => {
     props.setPlaylistName(event.target.value);
   }
+
+  const handleClick = () => {
+    props.gatherPlaylistUri();
+    props.emptyTracklist();
+  }
+
 return (
     <div id={styles.playlistCON}>
     <input id={styles.playlistName} 
@@ -27,7 +33,9 @@ return (
                                       buttonSign="-"
                                       />)} 
 
-    <button id={styles.savePlaylist}>Save to Spotify</button>
+    <button id={styles.savePlaylist}
+            onClick={handleClick}
+    >Save to Spotify</button>
     <p>{props.playlistName}</p>
   </div>
 )

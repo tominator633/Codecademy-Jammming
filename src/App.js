@@ -6,11 +6,11 @@ import styles from "./App.module.css";
 
 
 const songs = [
-  {name: "Yeah!", artist: "Chris Brown", album: "nanana", id: "1"},
-  {name: "Bussin", artist: "Nicki Minaj", album: "Untitled", id: "2"},
-  {name: "FE!N", artist: "Travis Scott", album: "UTOPIA", id: "3"},
-  {name: "Atomy", artist: "Jelen", album: "Vsechno bude dobry", id: "4"},
-  {name: "Freestyle", artist: "Lil Baby", album: "Too Hard", id: "5"},
+  {name: "Yeah!", artist: "Chris Brown", album: "nanana", id: "1", uri: "spotify:track:2QtxlzvSBONjs1bDC34ixs"},
+  {name: "Bussin", artist: "Nicki Minaj", album: "Untitled", id: "2", uri: "spotify:track:7lcI4X8RZxK4zIknJcwpBq"},
+  {name: "FE!N", artist: "Travis Scott", album: "UTOPIA", id: "3", uri: "spotify:track:42VsgItocQwOQC3XWZ8JNA"},
+  {name: "Atomy", artist: "Jelen", album: "Vsechno bude dobry", id: "4", uri: "spotify:track:2HwxIhPUcdB40xuOZnEVXC"},
+  {name: "Freestyle", artist: "Lil Baby", album: "Too Hard", id: "5", uri: "spotify:track:5BbdKBZO0TH0GhfxUfyhL9?context=spotify%3Aplaylist%3A37i9dQZF1DX76Wlfdnj7AP"},
 ];
 const tracksInPlaylist = [
   {name: "Yeah!", artist: "Chris Brown", album: "nanana", id: "1"},
@@ -40,6 +40,13 @@ if (tracklist.includes(track)) {
 }
 }
 
+const gatherPlaylistUri = () => {
+  const playlistUriArr = tracklist.map((song) => song.uri);
+  return playlistUriArr;
+};
+const emptyTracklist = () => {
+  setTracklist([]);
+}
 
   return (
     <>
@@ -55,6 +62,8 @@ if (tracklist.includes(track)) {
                 setPlaylistName={setPlaylistName}
                 tracklist={tracklist}
                 removeTrack={removeTrack}
+                gatherPlaylistUri={gatherPlaylistUri}
+                emptyTracklist={emptyTracklist}
                
                 />
     </section>
