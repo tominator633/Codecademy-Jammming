@@ -34,7 +34,11 @@ if (!tracklist.includes(track)) {
 }
 }
 
-
+function removeTrack (track) {
+if (tracklist.includes(track)) {
+  setTracklist((prev) => prev.filter((song) => song !== track))
+}
+}
 
 
   return (
@@ -50,6 +54,7 @@ if (!tracklist.includes(track)) {
       <Playlist playlistName={playlistName} 
                 setPlaylistName={setPlaylistName}
                 tracklist={tracklist}
+                removeTrack={removeTrack}
                
                 />
     </section>

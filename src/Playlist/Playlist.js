@@ -16,7 +16,16 @@ return (
             value={props.playlistName}
             />
 
-     {props.tracklist.map((song) => <Track name={song.name} artist={song.artist} album={song.album} key={song.id} id={song.id} />)} 
+     {props.tracklist.map((song) => <Track 
+                                      name={song.name} 
+                                      artist={song.artist} 
+                                      album={song.album} 
+                                      key={song.id} 
+                                      id={song.id} 
+                                      song={song}
+                                      removeTrack={props.removeTrack}
+                                      buttonSign="-"
+                                      />)} 
 
     <button id={styles.savePlaylist}>Save to Spotify</button>
     <p>{props.playlistName}</p>

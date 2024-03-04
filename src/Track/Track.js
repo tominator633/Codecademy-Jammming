@@ -3,8 +3,12 @@ import styles from "./Track.module.css";
 
 function Track (props) {
 
-const handleClick = () => {
+const handleClickAddTrack = () => {
 props.addTrack(props.song)
+}
+
+const handleClickRemoveTrack = () => {
+  props.removeTrack(props.song)
 }
 
 return (
@@ -14,10 +18,9 @@ return (
           <h3 id={styles.trackName}>{props.name}</h3>
           <h4 id={styles.artistAlbum}>{props.artist} | {props.album}</h4>
         </div>
-        <button id={styles.plusBtn}
-                onClick={handleClick}
-                
-                >+</button>
+        <button id={styles.btn}
+                onClick={props.buttonSign === "+" ? handleClickAddTrack : handleClickRemoveTrack}
+                >{props.buttonSign}</button>
       </div>
     )
 }

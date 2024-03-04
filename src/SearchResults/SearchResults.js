@@ -16,6 +16,7 @@ return (
                     id={song.id}
                     song={song}
                     addTrack={props.addTrack}
+                    buttonSign="+"
                    
                     />
     })}
