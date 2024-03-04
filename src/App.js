@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
 import Playlist from './Playlist/Playlist';
@@ -26,6 +26,16 @@ function App() {
   const [playlistName, setPlaylistName] = useState("");
   const [tracklist, setTracklist] = useState([]);
 
+//THIS FUNCTION TOOOK ME ONE DAY TO FIGURE OUT---FIRST I USED PREV IN THE CONDITION - BUT PREV IS NOT DEFINED UNTIL IT IS DECLARED AS PARAMETER IN SETTER
+//EVERYTIME THE SET TRACKLIST IS CALLED, A NEW ARRAY REPLACES THE OLD ONE. THATS WHY PUSH() DOES NOT WORK EITHER!!!
+function addTrack (track) {
+if (!tracklist.includes(track)) {
+  setTracklist((prev) => [...prev, track])
+}
+}
+
+
+
 
   return (
     <>
@@ -34,13 +44,13 @@ function App() {
     <section id={styles.resultsPlaylistCON}>
 
       <SearchResults results={results} 
-                      setTracklist={setTracklist}
+                     addTrack={addTrack}
                       />
 
       <Playlist playlistName={playlistName} 
                 setPlaylistName={setPlaylistName}
                 tracklist={tracklist}
-                setTracklist={setTracklist}
+               
                 />
     </section>
 </>
