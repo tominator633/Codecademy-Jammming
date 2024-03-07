@@ -3,6 +3,7 @@ import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
 import Playlist from './Playlist/Playlist';
 import styles from "./App.module.css";
+import Spotify from './spotify';
 
 
 const songs = [
@@ -25,6 +26,7 @@ function App() {
   const [results, setResults] = useState(songs);
   const [playlistName, setPlaylistName] = useState("");
   const [tracklist, setTracklist] = useState([]);
+  const [searchImput, setSearchImput] = useState("");
 
 //THIS FUNCTION TOOOK ME ONE DAY TO FIGURE OUT---FIRST I USED PREV IN THE CONDITION - BUT PREV IS NOT DEFINED UNTIL IT IS DECLARED AS PARAMETER IN SETTER
 //EVERYTIME THE SET TRACKLIST IS CALLED, A NEW ARRAY REPLACES THE OLD ONE. THATS WHY PUSH() DOES NOT WORK EITHER!!!
@@ -48,9 +50,15 @@ const emptyTracklist = () => {
   setTracklist([]);
 }
 
+const search = (searchedTitle) => {
+  setResults(Spotify.getSongs(searchedTitle));
+}
+
   return (
     <>
-    <SearchBar/>
+    <SearchBar search={search}
+                searchImput={searchImput}
+                setSearchImput={setSearchImput}/>
 
     <section id={styles.resultsPlaylistCON}>
 
@@ -67,8 +75,11 @@ const emptyTracklist = () => {
                
                 />
     </section>
+    
 </>
   );
 }
 
 export default App;
+
+

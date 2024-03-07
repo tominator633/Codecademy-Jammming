@@ -1,18 +1,30 @@
 import React from "react";
 import styles from "./SearchBar.module.css"
 
-function SearchBar () {
+function SearchBar (props) {
+
+const handleChange = (event) => {
+    props.setSearchImput(event.target.value);
+}
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    props.search(props.searchImput);
+}
+
     return (
     <form 
+        onSubmit={handleSubmit}
         id={styles.searchBarForm}
-        method="POST" 
-        action="#" >
-        
+       /*  method="POST" 
+        action="#" */ >
         <input 
             type="search"
             id={styles.songSearchField}
             placeholder="enter a song title"
             name="song"
+            onChange={handleChange}
+            value={props.searchImput}
              />
 
         <button 
