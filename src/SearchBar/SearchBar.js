@@ -9,7 +9,7 @@ const handleChange = (event) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    props.search(props.searchImput);
+    props.search();
 }
 
     return (
