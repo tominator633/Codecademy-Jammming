@@ -29,6 +29,7 @@ return (
                                       key={song.id} 
                                       id={song.id} 
                                       song={song}
+                                      uri={song.uri}
                                       removeTrack={props.removeTrack}
                                       buttonSign="-"
                                       />)} 

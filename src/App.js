@@ -28,9 +28,14 @@ function App() {
   const [playlistName, setPlaylistName] = useState("");
   const [tracklist, setTracklist] = useState([]);
   const [searchImput, setSearchImput] = useState("");
-
-//THIS FUNCTION TOOOK ME ONE DAY TO FIGURE OUT---FIRST I USED PREV IN THE CONDITION - BUT PREV IS NOT DEFINED UNTIL IT IS DECLARED AS PARAMETER IN SETTER
-//EVERYTIME THE SET TRACKLIST IS CALLED, A NEW ARRAY REPLACES THE OLD ONE. THATS WHY PUSH() DOES NOT WORK EITHER!!!
+/* 
+THIS FUNCTION TOOOK ME ONE DAY TO FIGURE OUT---
+FIRST I USED PREV IN THE CONDITION - BUT 
+PREV IS NOT DEFINED UNTIL IT IS DECLARED AS
+ PARAMETER IN SETTER
+EVERYTIME THE SET TRACKLIST IS CALLED, 
+A NEW ARRAY REPLACES THE OLD ONE. THATS WHY PUSH() D
+OES NOT WORK EITHER!!! */
 function addTrack (track) {
 if (!tracklist.includes(track)) {
   setTracklist((prev) => [...prev, track])
