@@ -25,8 +25,6 @@ const Spotify = {
       },
 
          async getSongs (searchedTitle) {
-            
-            
             const searchEndpoint = "/v1/search";
             let token = Spotify.getAccessToken();
             try {
@@ -37,16 +35,21 @@ const Spotify = {
                 });
                 if (response.ok) {
                     const jsonResponse = await response.json();
-                 //   console.log(jsonResponse); 
                  const resultsArr = await jsonResponse.tracks.items.map((item) => {
                     return {
                         name: item.name,
                         artist: item.artists[0].name,
                         album: item.album.name,
                         id: item.id,
-                        uri: item.uri
+                        uri: item.uri,
+                        img: item.album.images[0].url 
+                        /* i DID IT WRONG WY THE WHOLE TIME just because of
+                         watching the spotify manual - you need to check 
+                         the jsonresponse itself to find the right path to img */
                     }
                 });
+                console.log(jsonResponse);
+                console.log(resultsArr);
                 return resultsArr;
                 } else {
                     throw new Error("Request not successful");
@@ -69,10 +72,12 @@ const Spotify = {
                 if (response.ok) {
                     const jsonResponse = await response.json();
                     const spotifyUserId = await jsonResponse.id;
+                    console.log(spotifyUserId);
                     return spotifyUserId;
                 } else {
                     throw new Error("Request for user ID not successful");
                 }
+                
             } catch (error) {
                     alert(error);
                     console.log(error);
@@ -83,22 +88,30 @@ const Spotify = {
             const spotifyUserId = await Spotify.getUserId();
             const playlistsEndpoint = `/v1/users/${spotifyUserId}/playlists`;
             let token = Spotify.getAccessToken();
+            console.log(token);
+            console.log(playlistName);
+            console.log(`${baseURL}${playlistsEndpoint}`);
             try {
                 const response = await fetch(`${baseURL}${playlistsEndpoint}`, {
                     method: "POST",
                     headers: {
                         Authorization: "Bearer " + token,
-                        "Content-Type": "application/json",
+                        "Content-Type": "application/json"
                     },
-                    body: {
-                        "name": playlistName,
-                        "description": "created with Jammming",
-                        "public": false
-                    }
+                    body: JSON.stringify({
+                        name: playlistName,
+                      description: "created with Jammming",
+                /*       public: false */
+                /* PUBLIC: FALSE IS OUT OF MY GRANTED SCOPE- IT CAUSED THE ERROR 403 !!! 
+                I was not authorized to use this header because manipulation 
+                of private playlists is out of my scope*/
+                    })
                 });
                 if (response.ok) {
                     const jsonResponse = await response.json();
-                    const playlistId = jsonResponse.id;
+                    const playlistId = await jsonResponse.id;
+                    console.log(playlistId);
+                    console.log(playlistName);
                     return playlistId;
                 } else {
                     throw new Error("Playlist not created. Request error.");
@@ -118,11 +131,11 @@ const Spotify = {
                     method: "POST",
                     headers: {
                         Authorization: "Bearer " + token,
-                        "Content-Type": "application/json",
+                        "Content-Type": "application/json"
                     },
-                    body: {
-                        "uris": urisArr
-                    }
+                    body: JSON.stringify({
+                        uris: urisArr
+                    })
                 });
                 if (response.ok) {
                     alert("Playlist created :)");
