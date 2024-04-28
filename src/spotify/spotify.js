@@ -52,7 +52,7 @@ const Spotify = {
                 console.log(resultsArr);
                 return resultsArr;
                 } else {
-                    throw new Error("Request not successful");
+                    throw new Error("Request for songs not successful");
                 }
             } catch(error) {
                 alert(error);
