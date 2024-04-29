@@ -88,9 +88,9 @@ const Spotify = {
             const spotifyUserId = await Spotify.getUserId();
             const playlistsEndpoint = `/v1/users/${spotifyUserId}/playlists`;
             let token = Spotify.getAccessToken();
-            console.log(token);
-            console.log(playlistName);
-            console.log(`${baseURL}${playlistsEndpoint}`);
+            //console.log(token);
+            //console.log(playlistName);
+            //console.log(`${baseURL}${playlistsEndpoint}`);
             try {
                 const response = await fetch(`${baseURL}${playlistsEndpoint}`, {
                     method: "POST",
